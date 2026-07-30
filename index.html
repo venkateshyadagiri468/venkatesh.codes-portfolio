@@ -976,6 +976,183 @@
             padding-top: 18px;
             border-top: 1px dashed #1e293b;
         }
+
+        /* ===================================================================
+         * PREMIUM INTERACTION & ANIMATION OVERRIDES
+         * =================================================================== */
+        
+        /* Smooth globally-applied transitions */
+        .btn, 
+        .project-card-hudson, 
+        .skill-card, 
+        .exp-card, 
+        .process-card, 
+        .skill-pill, 
+        .hero-badge, 
+        .project-repo-link,
+        .s-header__menu-links a,
+        .s-intro__social li a {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
+        /* 1. Dynamic Card Border Sweeps & Glowing Hover Effects */
+        .project-card-hudson, 
+        .skill-card, 
+        .exp-card, 
+        .process-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top-border sweep gradient lines */
+        .project-card-hudson::before,
+        .skill-card::before,
+        .exp-card::before,
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 10;
+        }
+
+        .project-card-hudson::before {
+            background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%);
+            border-radius: 16px 16px 0 0;
+        }
+        .skill-card::before {
+            background: linear-gradient(90deg, #34d399 0%, #38bdf8 100%);
+            border-radius: 14px 14px 0 0;
+        }
+        .exp-card::before {
+            background: linear-gradient(90deg, #f43f5e 0%, #a855f7 100%);
+            border-radius: 16px 16px 0 0;
+        }
+        .process-card::before {
+            background: linear-gradient(90deg, var(--color-accent) 0%, #a855f7 100%);
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Hover states with lift, scale, and rich gradient shadows */
+        .project-card-hudson:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(56, 189, 248, 0.3) !important;
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15), 0 0 25px rgba(168, 85, 247, 0.1) !important;
+        }
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(56, 189, 248, 0.3) !important;
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15), 0 0 20px rgba(52, 211, 153, 0.1) !important;
+        }
+        .exp-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(56, 189, 248, 0.3) !important;
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15), 0 0 20px rgba(244, 63, 94, 0.08) !important;
+        }
+        .process-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(233, 69, 96, 0.3) !important;
+            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.18) !important;
+        }
+
+        .project-card-hudson:hover::before,
+        .skill-card:hover::before,
+        .exp-card:hover::before,
+        .process-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* 2. Premium Button Hover States */
+        .btn--primary:hover,
+        input[type=submit].btn--primary:hover,
+        button.btn--primary:hover {
+            transform: translateY(-4px) scale(1.02) !important;
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.4) !important;
+            background: var(--color-btn-primary-hover) !important;
+        }
+
+        .btn--stroke:hover {
+            transform: translateY(-4px) scale(1.02) !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25) !important;
+        }
+
+        .project-filter-btn:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            border-color: #38bdf8 !important;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25) !important;
+        }
+        .project-filter-btn.active:hover {
+            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.5) !important;
+        }
+
+        /* 3. Skills Pills & Badges Micro-Animations */
+        .skill-pill:hover {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%) !important;
+            border-color: #38bdf8 !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 15px rgba(56, 189, 248, 0.35) !important;
+            transform: translateY(-4px) scale(1.06) !important;
+        }
+
+        .hero-badge:hover {
+            background: linear-gradient(135deg, #0f172a 0%, #a855f7 100%) !important;
+            border-color: #a855f7 !important;
+            color: #ffffff !important;
+            transform: translateY(-5px) scale(1.08) !important;
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.45) !important;
+        }
+
+        /* Project Repo Link translation */
+        .project-repo-link:hover {
+            color: #f43f5e !important;
+            transform: translateX(6px) !important;
+        }
+
+        /* 4. Navigation Links Wipe Underline Effect */
+        .s-header__menu-links a {
+            position: relative;
+        }
+        .s-header__menu-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.2rem;
+            right: 1.2rem;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, #a855f7);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .s-header__menu-links a:hover::after,
+        .s-header__menu-links .current a::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* 5. Scroll Down Continuous Bounce */
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        .s-intro__scroll-down .scroll-icon {
+            animation: scroll-bounce 2s infinite ease-in-out;
+        }
+
+        /* 6. Social Icon Hover Tilt & Color Shift */
+        .s-intro__social li a:hover {
+            transform: translateY(-5px) rotate(8deg) scale(1.15) !important;
+        }
+        .s-intro__social li a:hover svg {
+            fill: #38bdf8 !important;
+        }
     </style>
 
     <!-- favicons
