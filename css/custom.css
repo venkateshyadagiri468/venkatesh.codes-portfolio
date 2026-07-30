@@ -75,25 +75,25 @@
         }
 
         .process-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(8,12,24,0.98));
+            border: 1px solid rgba(52,211,153,0.15);
             padding: 32px 28px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
 
         .process-card:hover {
             transform: translateY(-6px);
-            border-color: #2563eb;
-            box-shadow: 0 18px 35px -10px rgba(37, 99, 235, 0.15);
+            border-color: #34d399;
+            box-shadow: 0 18px 35px rgba(52, 211, 153, 0.18);
         }
 
         .process-num {
             font-size: 2rem;
             font-weight: 800;
-            color: #2563eb;
+            color: #34d399;
             opacity: 0.9;
             margin-bottom: 12px;
             font-family: 'Space Grotesk', monospace;
@@ -102,13 +102,13 @@
         .process-title {
             font-size: 1.15rem;
             font-weight: 700;
-            color: #0f172a;
+            color: #f8fafc;
             margin-bottom: 10px;
         }
 
         .process-desc {
             font-size: 0.92rem;
-            color: #64748b;
+            color: #94a3b8;
             line-height: 1.65;
             margin: 0;
         }
@@ -529,14 +529,14 @@
         }
 
         .about-content-box {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(8, 12, 24, 0.99));
+            border: 1px solid rgba(52, 211, 153, 0.2);
             border-radius: 20px;
             padding: 44px 48px;
             margin-top: 28px;
             margin-bottom: 36px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(52, 211, 153, 0.08);
             position: relative;
             overflow: hidden;
         }
@@ -549,47 +549,43 @@
             left: 0;
             bottom: 0;
             width: 5px;
-            background: linear-gradient(180deg, #2563eb 0%, #7c3aed 100%);
+            background: linear-gradient(180deg, #34d399 0%, #06b6d4 100%);
             transition: all 0.4s ease;
         }
 
         .about-content-box:hover {
             transform: translateY(-6px);
-            border-color: rgba(37, 99, 235, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.12);
+            border-color: rgba(52, 211, 153, 0.4);
+            box-shadow: 0 25px 50px rgba(52, 211, 153, 0.15);
         }
 
         .about-content-box:hover::before {
-            background: linear-gradient(180deg, #7c3aed 0%, #2563eb 100%);
+            background: linear-gradient(180deg, #06b6d4 0%, #34d399 100%);
             width: 7px;
         }
 
         .about-paragraph {
-            color: #334155 !important;
+            color: #cbd5e1 !important;
             font-size: 1.08rem;
             line-height: 1.85;
             margin-bottom: 22px;
             font-weight: 400;
         }
 
-        /* Fix strong & b tags inside light & dark cards */
+        /* Fix strong & b tags inside dark cards */
         .about-content-box strong,
         .about-content-box b,
         .about-paragraph strong,
-        .about-paragraph b {
-            color: #2563eb !important;
-            font-weight: 700 !important;
-            text-shadow: none;
-        }
-
+        .about-paragraph b,
         .bento-card strong,
         .bento-card b,
         .exp-tl-card strong,
         .exp-tl-card b,
         .proj-card-new strong,
         .proj-card-new b {
-            color: #38bdf8 !important;
+            color: #34d399 !important;
             font-weight: 700 !important;
+            text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
         }
 
         .about-paragraph:last-child {
