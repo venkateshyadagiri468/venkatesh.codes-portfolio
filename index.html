@@ -543,23 +543,41 @@
         }
 
         .about-content-box {
-            background: #0f172a;
-            border: 1.5px solid #1e293b;
-            border-left: 5px solid #38bdf8;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 36px 40px;
+            padding: 40px 48px;
             margin-top: 28px;
             margin-bottom: 36px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Dynamic left gradient border line */
+        .about-content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, #38bdf8 0%, #a855f7 100%);
+            transition: all 0.4s ease;
         }
 
         .about-content-box:hover {
             transform: translateY(-8px);
-            border-color: #38bdf8;
-            border-left-color: #a855f7;
-            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.25), inset 0 0 20px rgba(56, 189, 248, 0.05);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15), 0 0 25px rgba(168, 85, 247, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.02);
+        }
+
+        .about-content-box:hover::before {
+            background: linear-gradient(180deg, #a855f7 0%, #38bdf8 100%);
+            width: 7px;
         }
 
         .about-paragraph {
@@ -624,6 +642,32 @@
             color: #38bdf8;
             transform: translateY(-2px);
             text-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+        }
+
+        .s-intro__content-subtitle {
+            color: #111111;
+            font-size: 0.7em;
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .s-intro__content-desc {
+            color: #333333;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 680px;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        @media screen and (max-width: 1080px) {
+            .s-intro__content-subtitle {
+                color: #ffffff !important;
+            }
+            .s-intro__content-desc {
+                color: #cbd5e1 !important;
+            }
         }
 
         /* Mobile & Tablet Comprehensive Responsiveness Overhaul */
@@ -1004,10 +1048,10 @@
 
                         <h1 class="s-intro__content-title">
                         Hello, I'm Venkatesh <br>
-                        <span style="color: #111111; font-size: 0.7em; font-weight: 700; display: block; margin-top: 10px;">A Full-Stack Software Engineer building scalable web applications</span>
+                        <span class="s-intro__content-subtitle">A Full-Stack Software Engineer building scalable web applications</span>
                         </h1>                            
 
-                        <p style="color: #333333; font-size: 1.05rem; line-height: 1.7; max-width: 680px; margin-top: 16px; font-weight: 500;">
+                        <p class="s-intro__content-desc">
                         Software Engineer experienced in building production-grade full-stack applications with Python, React, Node.js, Express, Django REST Framework, and PostgreSQL. Skilled in responsive interfaces, RESTful API design, and maintainable backends.
                         </p>
 
@@ -1093,7 +1137,7 @@
                         <h2 class="about-title-hover">ABOUT ME.</h2>
                     </div> <!-- end section-header -->
 
-                    <!-- Clean About Content Container (No card hover effect) -->
+                    <!-- Enhanced About Content Container -->
                     <div class="about-content-box">
                         <p class="about-paragraph">
                         I design and develop full-stack applications with a strong emphasis on scalability, performance, and maintainability. From crafting intuitive frontend experiences to architecting backend APIs and databases, I enjoy solving engineering challenges across the entire software stack.
@@ -1102,24 +1146,8 @@
                         My work combines modern technologies such as React, Next.js, TypeScript, Node.js, Express.js, Django, PostgreSQL, MongoDB, Redis, Docker, and Git, along with a product-first mindset. I value writing clean, testable code, building reusable systems, and delivering software that teams can confidently maintain and scale.
                         </p>
                         <p class="about-paragraph">
-                        Whether working independently or collaborating with distributed engineering teams, I strive to build software that creates measurable value while following industry best practices in architecture, security, and performance.
+                        Whether working independently or collaborating with distributed engineering teams, I strive to build software that creates measurable value while following industry best practices in architecture, security, and performance. — <strong>best software enginner</strong>
                         </p>
-                    </div>
-
-                    <!-- Key Stats Badges Grid -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 36px 0;">
-                        <div class="stat-badge-box">
-                            <div class="stat-badge-num">9+</div>
-                            <div class="stat-badge-lbl">Repositories</div>
-                        </div>
-                        <div class="stat-badge-box">
-                            <div class="stat-badge-num">15+</div>
-                            <div class="stat-badge-lbl">REST Endpoints</div>
-                        </div>
-                        <div class="stat-badge-box">
-                            <div class="stat-badge-num">B.Tech</div>
-                            <div class="stat-badge-lbl">CSE 2025</div>
-                        </div>
                     </div>
 
                     <!-- 4-Step Engineering Process -->
@@ -1300,7 +1328,31 @@
                     <!-- Projects Grid matching screenshot -->
                     <div class="projects-grid">
 
-                        <!-- 1. HabitFlow -->
+                        <!-- 1. Notion Clone -->
+                        <div class="project-card-hudson" data-category="fullstack">
+                            <div>
+                                <div class="project-card-top">
+                                    <span class="project-badge-pill">Featured Project</span>
+                                    <a href="https://github.com/venkateshyadagiri468/Notion-clone-.git" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                    </a>
+                                </div>
+                                <h3 class="project-card-title">Notion Clone</h3>
+                                <p class="project-card-desc">Developed a full-featured Notion clone with real-time text editing, nesting documents, workspace organization, drag-and-drop file uploads, and full dark mode support.</p>
+                                <div class="project-tech-pills">
+                                    <span class="project-tech-pill">Next.js</span>
+                                    <span class="project-tech-pill">React.js</span>
+                                    <span class="project-tech-pill">Tailwind CSS</span>
+                                    <span class="project-tech-pill">TypeScript</span>
+                                    <span class="project-tech-pill">BlockNote</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/venkateshyadagiri468/Notion-clone-.git" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                                View Repository ↗
+                            </a>
+                        </div>
+
+                        <!-- 2. HabitFlow -->
                         <div class="project-card-hudson" data-category="fullstack">
                             <div>
                                 <div class="project-card-top">
