@@ -565,11 +565,27 @@
         }
 
         .about-paragraph {
-            color: #e2e8f0;
+            color: #e2e8f0 !important;
             font-size: 1.1rem;
             line-height: 1.85;
             margin-bottom: 22px;
             font-weight: 400;
+        }
+
+        /* Fix strong & b tags inside dark cards */
+        .about-content-box strong,
+        .about-content-box b,
+        .about-paragraph strong,
+        .about-paragraph b,
+        .bento-card strong,
+        .bento-card b,
+        .exp-tl-card strong,
+        .exp-tl-card b,
+        .proj-card-new strong,
+        .proj-card-new b {
+            color: #38bdf8 !important;
+            font-weight: 700 !important;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
         }
 
         .about-paragraph:last-child {
