@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js" >
+<!-- Google Fonts: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <head>
 
     <!--- basic page needs
@@ -1279,6 +1283,1060 @@
             0% { box-shadow: 0 0 5px rgba(52, 211, 153, 0.1); }
             100% { box-shadow: 0 0 15px rgba(52, 211, 153, 0.4); }
         }
+
+        /* =====================================================================
+         * PREMIUM SECTION UPLIFT — SKILLS / PROJECTS / EXPERIENCE
+         * ===================================================================== */
+
+        /* --- Global font override for uplifted sections --- */
+        .uplift-section {
+            font-family: 'Inter', 'Space Grotesk', sans-serif;
+        }
+
+        /* --- Section pill label --- */
+        .section-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: #38bdf8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+        .section-pill-dot {
+            width: 6px;
+            height: 6px;
+            background: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #38bdf8;
+            animation: pulse-green 2s infinite;
+        }
+
+        /* =====================================================================
+         * TECHNICAL EXPERTISE — PREMIUM BENTO GRID
+         * ===================================================================== */
+        .tech-section-wrap {
+            background: #020510;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .tech-section-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('images/tech-bg.png') center/cover no-repeat;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .tech-section-wrap::after {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .tech-heading {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .tech-heading span {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .tech-sub {
+            color: #64748b;
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 56px;
+        }
+
+        /* Bento skill grid */
+        .skill-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: auto;
+            gap: 16px;
+        }
+
+        .bento-card {
+            background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(10,15,30,0.98) 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1), border-color 0.4s ease, box-shadow 0.4s ease;
+            cursor: default;
+        }
+        .bento-card:hover {
+            transform: translateY(-6px) scale(1.015);
+            border-color: rgba(56,189,248,0.35);
+            box-shadow: 0 20px 50px rgba(56,189,248,0.12), 0 0 0 1px rgba(56,189,248,0.1);
+        }
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--bento-accent, linear-gradient(90deg, #38bdf8, #a855f7));
+            border-radius: 20px 20px 0 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .bento-card:hover::before { transform: scaleX(1); }
+        /* Shimmer */
+        .bento-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+            transform: skewX(-20deg);
+            transition: none;
+            pointer-events: none;
+        }
+        .bento-card:hover::after {
+            left: 160%;
+            transition: left 0.7s ease;
+        }
+
+        /* Column spans */
+        .bento-span-4  { grid-column: span 4; }
+        .bento-span-6  { grid-column: span 6; }
+        .bento-span-8  { grid-column: span 8; }
+        .bento-span-12 { grid-column: span 12; }
+
+        .bento-card-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .bento-card-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+        .bento-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        /* Skill bar component */
+        .skill-bar-list { display: flex; flex-direction: column; gap: 14px; }
+        .skill-bar-item { }
+        .skill-bar-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .skill-bar-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+        .skill-bar-pct {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+        .skill-bar-track {
+            height: 6px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: var(--bar-color, linear-gradient(90deg, #38bdf8, #a855f7));
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+        }
+        .skill-bar-fill.animated { width: var(--bar-width, 0%); }
+
+        /* Compact pill grid inside bento */
+        .bento-pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .bento-pill {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #e2e8f0;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 5px 13px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+        .bento-pill:hover {
+            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(56,189,248,0.3);
+        }
+
+        /* Professional Tech Tags (GitHub language dot style) */
+        .tech-tag-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 16px;
+        }
+        .tech-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 10px;
+            transition: all 0.25s ease;
+        }
+        .tech-tag:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+            transform: translateX(3px);
+        }
+        .tech-tag-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 6px currentColor;
+        }
+        .tech-tag-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            letter-spacing: 0.01em;
+        }
+
+        /* Big stat inside bento */
+        .bento-stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+        }
+        .bento-stat-label {
+            font-size: 0.88rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .bento-stats-row {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        /* Language badge inside big bento */
+        .lang-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: 1px solid;
+        }
+        .lang-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 900px) {
+            .bento-span-4, .bento-span-6, .bento-span-8 { grid-column: span 12; }
+        }
+        @media (max-width: 600px) {
+            .skill-bento-grid { grid-template-columns: 1fr; gap: 12px; }
+            .bento-span-4, .bento-span-6, .bento-span-8, .bento-span-12 { grid-column: span 1; }
+            .tech-heading { font-size: 2.2rem; }
+        }
+
+        /* =====================================================================
+         * PROJECTS — PREMIUM CARD REDESIGN
+         * ===================================================================== */
+        .projects-section-wrap {
+            background: #06080f;
+            padding: 100px 0 90px;
+            position: relative;
+        }
+        .projects-section-wrap::before {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -200px;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(244,63,94,0.07) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .proj-heading {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+        .proj-heading span {
+            background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .proj-sub {
+            color: #64748b;
+            font-size: 1.05rem;
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 44px;
+        }
+
+        /* Filter row */
+        .proj-filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 52px;
+        }
+        .proj-filter {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 9px 22px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .proj-filter:hover {
+            border-color: rgba(56,189,248,0.4);
+            color: #38bdf8;
+            background: rgba(56,189,248,0.06);
+        }
+        .proj-filter.active {
+            background: linear-gradient(135deg, #f43f5e, #a855f7);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(244,63,94,0.35);
+        }
+
+        /* New premium project card */
+        .proj-grid-new {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 1024px) { .proj-grid-new { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .proj-grid-new { grid-template-columns: 1fr; } }
+
+        .proj-card-new {
+            background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(8,12,24,1));
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 22px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1), border-color 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+            min-height: 300px;
+        }
+        .proj-card-new:hover {
+            transform: translateY(-10px) scale(1.015);
+            border-color: rgba(56,189,248,0.3);
+            box-shadow: 0 24px 60px rgba(56,189,248,0.13), 0 0 0 1px rgba(56,189,248,0.08);
+        }
+        /* Gradient sweep top border */
+        .proj-card-new::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--proj-accent, linear-gradient(90deg, #38bdf8, #a855f7));
+            border-radius: 22px 22px 0 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .proj-card-new:hover::before { transform: scaleX(1); }
+        /* Shine sweep */
+        .proj-card-new::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -120%;
+            width: 55%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+            transform: skewX(-18deg);
+            pointer-events: none;
+            transition: none;
+        }
+        .proj-card-new:hover::after { left: 160%; transition: left 0.75s ease; }
+
+        /* Card inner elements */
+        .proj-card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+        .proj-card-icon-wrap {
+            width: 52px; height: 52px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        .proj-cat-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 100px;
+            border: 1px solid;
+        }
+        .proj-card-title-new {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .proj-card-desc-new {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 22px;
+            flex: 1;
+        }
+        .proj-tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 22px;
+        }
+        .proj-tech-chip {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #94a3b8;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        .proj-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .proj-gh-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #38bdf8;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .proj-gh-link:hover {
+            color: #f43f5e;
+            transform: translateX(4px);
+        }
+        .proj-gh-btn {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .proj-gh-btn:hover {
+            background: #38bdf8;
+            border-color: #38bdf8;
+            color: #0b132b;
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        /* Featured wide card */
+        .proj-card-featured {
+            grid-column: span 2;
+        }
+        @media (max-width: 640px) { .proj-card-featured { grid-column: span 1; } }
+
+        /* =====================================================================
+         * EXPERIENCE — PREMIUM VERTICAL TIMELINE
+         * ===================================================================== */
+        .exp-section-wrap {
+            background: #020510;
+            padding: 100px 0 90px;
+            position: relative;
+        }
+        .exp-section-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0; right: -150px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .exp-heading {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+        .exp-heading span {
+            background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .exp-sub-text {
+            color: #64748b;
+            font-size: 1.05rem;
+            max-width: 540px;
+            line-height: 1.7;
+            margin-bottom: 64px;
+        }
+
+        /* Timeline wrapper */
+        .exp-tl-wrap {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        /* Center vertical line */
+        .exp-tl-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 24px;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(56,189,248,0.8) 0%, rgba(168,85,247,0.6) 50%, rgba(52,211,153,0.5) 100%);
+            border-radius: 2px;
+        }
+
+        .exp-tl-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 40px;
+        }
+        .exp-tl-item:last-child { margin-bottom: 0; }
+
+        /* Node on the line */
+        .exp-tl-node {
+            position: absolute;
+            left: 0; top: 30px;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 2px solid;
+            background: #020510;
+            z-index: 2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .exp-tl-item:hover .exp-tl-node {
+            transform: scale(1.2);
+        }
+        /* Pulsing ring on node */
+        .exp-tl-node::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            opacity: 0;
+            animation: tl-pulse 2.5s infinite;
+        }
+        @keyframes tl-pulse {
+            0% { transform: scale(0.85); opacity: 0.6; }
+            100% { transform: scale(1.7); opacity: 0; }
+        }
+
+        /* Experience card */
+        .exp-tl-card {
+            background: linear-gradient(145deg, rgba(15,23,42,0.97), rgba(10,15,30,0.99));
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 32px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1), border-color 0.4s, box-shadow 0.4s;
+        }
+        .exp-tl-item:hover .exp-tl-card {
+            transform: translateY(-5px);
+            border-color: var(--exp-accent-color, rgba(56,189,248,0.35));
+            box-shadow: 0 20px 50px var(--exp-accent-shadow, rgba(56,189,248,0.12));
+        }
+        .exp-tl-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--exp-accent-bar, linear-gradient(90deg, #38bdf8, #a855f7));
+            border-radius: 20px 20px 0 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        .exp-tl-item:hover .exp-tl-card::before { transform: scaleX(1); }
+        /* Card shimmer */
+        .exp-tl-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -120%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.035), transparent);
+            transform: skewX(-20deg);
+            pointer-events: none;
+        }
+        .exp-tl-item:hover .exp-tl-card::after { left: 160%; transition: left 0.7s ease; }
+
+        .exp-tl-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .exp-tl-company {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin: 0 0 6px;
+        }
+        .exp-tl-role {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 100px;
+            border: 1px solid;
+        }
+        .exp-tl-date-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 100px;
+            background: rgba(56,189,248,0.08);
+            border: 1px solid rgba(56,189,248,0.25);
+            color: #38bdf8;
+            white-space: nowrap;
+        }
+        .exp-tl-date-dot {
+            width: 7px; height: 7px;
+            background: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #38bdf8;
+        }
+        .exp-tl-location {
+            font-size: 0.8rem;
+            color: #475569;
+            font-weight: 600;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .exp-tl-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #475569;
+            margin-bottom: 16px;
+        }
+        .exp-tl-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .exp-tl-bullet {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #94a3b8;
+            font-size: 0.97rem;
+            line-height: 1.65;
+        }
+        .exp-tl-bullet-icon {
+            flex-shrink: 0;
+            width: 22px; height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+        .exp-tl-bullet strong { color: #e2e8f0; font-weight: 600; }
+        .exp-tl-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .exp-tl-chip {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+        .exp-tl-chip:hover {
+            background: rgba(56,189,248,0.1);
+            border-color: rgba(56,189,248,0.3);
+            color: #38bdf8;
+        }
+
+        /* EDU card variant */
+        .exp-tl-edu-card {
+            background: linear-gradient(145deg, rgba(8,20,40,0.98), rgba(5,12,28,1));
+        }
+        .exp-tl-edu-course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .exp-tl-edu-course {
+            background: rgba(52,211,153,0.05);
+            border: 1px solid rgba(52,211,153,0.15);
+            color: #34d399;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+        .exp-tl-edu-course:hover {
+            background: rgba(52,211,153,0.12);
+            border-color: rgba(52,211,153,0.35);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .exp-tl-wrap::before { left: 20px; }
+            .exp-tl-item { padding-left: 60px; }
+            .exp-tl-node { width: 42px; height: 42px; font-size: 1rem; }
+            .exp-tl-card { padding: 24px 20px; }
+            .exp-heading { font-size: 2.2rem; }
+            .exp-tl-card-head { flex-direction: column; }
+        }
+
+        /* =====================================================================
+         * PREMIUM HOVER EFFECTS SYSTEM
+         * ===================================================================== */
+
+        /* ── 1. Tech Tag: Color-reactive glow from the language dot ── */
+        .tech-tag {
+            position: relative;
+            overflow: hidden;
+        }
+        .tech-tag::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--tag-glow, rgba(56,189,248,0.08));
+            opacity: 0;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .tech-tag:hover {
+            border-color: rgba(255,255,255,0.2) !important;
+            transform: translateX(5px) scale(1.02) !important;
+            box-shadow: -3px 0 12px var(--tag-shadow, rgba(56,189,248,0.2));
+        }
+        .tech-tag:hover::after { opacity: 1; }
+        .tech-tag:hover .tech-tag-name {
+            color: #ffffff;
+        }
+        .tech-tag:hover .tech-tag-dot {
+            transform: scale(1.4);
+            filter: brightness(1.3);
+        }
+        .tech-tag-dot {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* ── 2. Bento Card: 3D Perspective Tilt + Spotlight ── */
+        .bento-card {
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .bento-card:hover {
+            transform: translateY(-8px) perspective(800px) rotateX(2deg) rotateY(-1deg) scale(1.012) !important;
+            box-shadow:
+                0 30px 60px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(56,189,248,0.15),
+                0 0 40px rgba(56,189,248,0.08) !important;
+        }
+
+        /* Spotlight effect on bento cards */
+        .bento-card .bento-spotlight {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.06) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            border-radius: 20px;
+            z-index: 1;
+        }
+        .bento-card:hover .bento-spotlight { opacity: 1; }
+
+        /* ── 3. Bento Pill: Gradient fill sweep ── */
+        .bento-pill {
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .bento-pill::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #38bdf8, #a855f7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            border-radius: 8px;
+        }
+        .bento-pill:hover::before { opacity: 1; }
+        .bento-pill:hover {
+            border-color: transparent !important;
+            color: #fff !important;
+            transform: translateY(-3px) scale(1.07) !important;
+            box-shadow: 0 8px 20px rgba(56,189,248,0.35) !important;
+        }
+
+        /* ── 4. Project Cards: Per-card color glow + 3D lift ── */
+        .proj-card-new {
+            transform-style: preserve-3d;
+        }
+        .proj-card-new:hover {
+            transform: translateY(-14px) scale(1.018) perspective(900px) rotateX(1.5deg) !important;
+        }
+        /* Icon bounce on card hover */
+        .proj-card-new:hover .proj-card-icon-wrap {
+            transform: scale(1.15) rotate(-5deg);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .proj-card-icon-wrap {
+            transition: transform 0.4s ease;
+        }
+        /* Tech chip lift on card hover */
+        .proj-card-new:hover .proj-tech-chip {
+            border-color: rgba(255,255,255,0.15);
+            color: #e2e8f0;
+        }
+        /* Footer link animated arrow */
+        .proj-gh-link span {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .proj-gh-link:hover span {
+            transform: translate(3px, -3px) scale(1.2);
+        }
+
+        /* ── 5. GitHub Button: Spin + fill ── */
+        .proj-gh-btn {
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        }
+        .proj-gh-btn:hover {
+            background: linear-gradient(135deg, #38bdf8, #a855f7) !important;
+            border-color: transparent !important;
+            color: #fff !important;
+            transform: scale(1.2) rotate(12deg) !important;
+            box-shadow: 0 8px 20px rgba(56,189,248,0.4) !important;
+        }
+
+        /* ── 6. Experience Timeline: Deep lift + glowing left accent ── */
+        .exp-tl-item:hover .exp-tl-card {
+            transform: translateY(-8px) translateX(4px) !important;
+        }
+        .exp-tl-item:hover .exp-tl-node {
+            transform: scale(1.25) !important;
+        }
+        /* Chip hover in exp card */
+        .exp-tl-chip:hover {
+            transform: translateY(-2px) scale(1.05);
+        }
+        /* Course tile hover */
+        .exp-tl-edu-course:hover {
+            transform: translateY(-3px) scale(1.03) !important;
+            box-shadow: 0 6px 18px rgba(52,211,153,0.2);
+        }
+
+        /* ── 7. Bento Stat Numbers: Scale pop on card hover ── */
+        .bento-card:hover .bento-stat-num {
+            transform: scale(1.08);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bento-stat-num {
+            transition: transform 0.4s ease;
+            display: inline-block;
+        }
+
+        /* ── 8. Section Pills: Shimmer pulse ── */
+        .section-pill {
+            position: relative;
+            overflow: hidden;
+        }
+        .section-pill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: pill-shimmer 3s infinite;
+        }
+        @keyframes pill-shimmer {
+            0%   { left: -100%; }
+            40%  { left: 160%; }
+            100% { left: 160%; }
+        }
+
+        /* ── 9. Interactive Cursor Dot ── */
+        #cursor-dot {
+            position: fixed;
+            width: 10px; height: 10px;
+            background: #38bdf8;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.3s ease;
+            box-shadow: 0 0 12px #38bdf8, 0 0 24px rgba(56,189,248,0.4);
+            mix-blend-mode: screen;
+        }
+        #cursor-ring {
+            position: fixed;
+            width: 36px; height: 36px;
+            border: 1.5px solid rgba(56,189,248,0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: width 0.35s ease, height 0.35s ease, border-color 0.3s ease, opacity 0.3s ease;
+        }
+        body:has(.proj-card-new:hover) #cursor-dot { background: #f43f5e; box-shadow: 0 0 12px #f43f5e; }
+        body:has(.bento-card:hover) #cursor-dot { background: #a855f7; box-shadow: 0 0 12px #a855f7; }
+        body:has(.exp-tl-card:hover) #cursor-dot { background: #34d399; box-shadow: 0 0 12px #34d399; }
+
+        /* ── 10. Filter Button: Ripple effect ── */
+        .proj-filter {
+            position: relative;
+            overflow: hidden;
+        }
+        .proj-filter::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%), rgba(255,255,255,0.15) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 100px;
+        }
+        .proj-filter:hover::after { opacity: 1; }
+        .proj-filter:hover {
+            transform: translateY(-3px) scale(1.04) !important;
+            box-shadow: 0 8px 20px rgba(56,189,248,0.2) !important;
+        }
+        .proj-filter.active:hover {
+            transform: translateY(-3px) scale(1.04) !important;
+            box-shadow: 0 10px 28px rgba(244,63,94,0.45) !important;
+        }
+
+        /* ── 11. Bento Card: Glowing border on hover using CSS variables ── */
+        .bento-card:hover {
+            border-color: rgba(56,189,248,0.25) !important;
+        }
+
+        /* Disable heavy 3D on mobile */
+        @media (hover: none) {
+            .bento-card:hover { transform: translateY(-4px) !important; }
+            .proj-card-new:hover { transform: translateY(-6px) !important; }
+            #cursor-dot, #cursor-ring { display: none; }
+        }
     </style>
 
     <!-- favicons
@@ -1489,496 +2547,589 @@
         </section> <!-- end s-about -->   
 
 
-        <!-- # 02. TECHNICAL EXPERTISE SECTION (Verified Skill Pills & Category Grid)
+        <!-- # 02. TECHNICAL EXPERTISE — PREMIUM BENTO GRID
         ================================================== -->
-        <section id="skills" class="s-about target-section" style="padding-top: 90px; margin-top: 50px;">
-            <div class="row s-about__content">
-                <div class="column xl-12" style="text-align: center;">
+        <section id="skills" class="target-section uplift-section tech-section-wrap">
+            <div class="row" style="position: relative; z-index: 2;">
+                <div class="column xl-12">
 
-                    <div class="section-header" data-num="02" style="text-align: center; margin-bottom: 28px;">
-                        <h2 class="skills-section-title">Technical Expertise.</h2>
-                    </div> <!-- end section-header -->
+                    <!-- Section label -->
+                    <div style="margin-bottom: 24px;">
+                        <span class="section-pill">
+                            <span class="section-pill-dot"></span>
+                            02 — Technical Expertise
+                        </span>
+                    </div>
 
-                    <h3 class="skills-subtitle-hover">
-                        Tools, Frameworks & Engineering Stack
-                    </h3>
-                    <p style="color: #475569; font-size: 1.05rem; font-weight: 500; margin-bottom: 36px;">
-                        Proven proficiency across modern web technologies, scalable backend architectures, and database design.
-                    </p>
+                    <h2 class="tech-heading">Engineering <span>Stack & Skills</span></h2>
+                    <p class="tech-sub">Proven proficiency across modern web technologies, scalable backend architectures, and database design — built through real production projects.</p>
 
-                    <div class="skills-grid">
-                        
-                        <!-- Category 1 -->
-                        <div class="skill-card">
-                            <div class="skill-header">
-                                <h4 class="skill-category-title">Languages</h4>
-                                <span class="verified-tag">Verified Stack ● Active</span>
+                    <!-- BENTO GRID -->
+                    <div class="skill-bento-grid" id="skill-bento">
+
+                        <!-- Card: Core Languages — Professional Tech Tags -->
+                        <div class="bento-card bento-span-6" style="--bento-accent: linear-gradient(90deg, #38bdf8, #a855f7);">
+                            <div class="bento-card-icon" style="background: rgba(56,189,248,0.12);">⌨️</div>
+                            <div class="bento-card-label">Primary Languages</div>
+                            <div class="bento-card-title" style="margin-bottom: 20px;">Languages & Syntax</div>
+                            <div class="tech-tag-grid">
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #3572A5;"></span>
+                                    <span class="tech-tag-name">Python</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #f1e05a;"></span>
+                                    <span class="tech-tag-name">JavaScript (ES6+)</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #3178c6;"></span>
+                                    <span class="tech-tag-name">TypeScript</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #e34c26;"></span>
+                                    <span class="tech-tag-name">HTML5</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #563d7c;"></span>
+                                    <span class="tech-tag-name">CSS3</span>
+                                </div>
                             </div>
-                            <ul class="skill-list-pills">
-                                <li class="skill-pill">Python</li>
-                                <li class="skill-pill">JavaScript (ES6+)</li>
-                                <li class="skill-pill">TypeScript</li>
-                                <li class="skill-pill">HTML5</li>
-                                <li class="skill-pill">CSS3</li>
-                            </ul>
                         </div>
 
-                        <!-- Category 2 -->
-                        <div class="skill-card">
-                            <div class="skill-header">
-                                <h4 class="skill-category-title">Frontend Frameworks</h4>
-                                <span class="verified-tag">Verified Stack ● Active</span>
+                        <!-- Card: Frontend — Professional Tech Tags -->
+                        <div class="bento-card bento-span-6" style="--bento-accent: linear-gradient(90deg, #f43f5e, #a855f7);">
+                            <div class="bento-card-icon" style="background: rgba(244,63,94,0.1);">🎨</div>
+                            <div class="bento-card-label">Frontend</div>
+                            <div class="bento-card-title" style="margin-bottom: 20px;">Frameworks & UI Engineering</div>
+                            <div class="tech-tag-grid">
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #61dafb;"></span>
+                                    <span class="tech-tag-name">React.js</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #ffffff;"></span>
+                                    <span class="tech-tag-name">Next.js</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #06b6d4;"></span>
+                                    <span class="tech-tag-name">Tailwind CSS</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #646cff;"></span>
+                                    <span class="tech-tag-name">Vite</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #a855f7;"></span>
+                                    <span class="tech-tag-name">State Management</span>
+                                </div>
+                                <div class="tech-tag">
+                                    <span class="tech-tag-dot" style="background: #f43f5e;"></span>
+                                    <span class="tech-tag-name">Responsive UI</span>
+                                </div>
                             </div>
-                            <ul class="skill-list-pills">
-                                <li class="skill-pill">React.js</li>
-                                <li class="skill-pill">Tailwind CSS</li>
-                                <li class="skill-pill">Vite</li>
-                                <li class="skill-pill">Responsive Layouts</li>
-                                <li class="skill-pill">State Management</li>
-                            </ul>
                         </div>
 
-                        <!-- Category 3 -->
-                        <div class="skill-card">
-                            <div class="skill-header">
-                                <h4 class="skill-category-title">Backend Systems & APIs</h4>
-                                <span class="verified-tag">Verified Stack ● Active</span>
+                        <!-- Card: Backend -->
+                        <div class="bento-card bento-span-4" style="--bento-accent: linear-gradient(90deg, #34d399, #38bdf8);">
+                            <div class="bento-card-icon" style="background: rgba(52,211,153,0.1);">
+                                <span>⚙️</span>
                             </div>
-                            <ul class="skill-list-pills">
-                                <li class="skill-pill">Node.js</li>
-                                <li class="skill-pill">Express.js</li>
-                                <li class="skill-pill">Django</li>
-                                <li class="skill-pill">Django REST Framework</li>
-                                <li class="skill-pill">RESTful API Design</li>
-                            </ul>
+                            <div class="bento-card-label">Backend</div>
+                            <div class="bento-card-title">APIs & Server Systems</div>
+                            <div class="bento-pill-grid" style="margin-top: 8px;">
+                                <span class="bento-pill">Node.js</span>
+                                <span class="bento-pill">Express.js</span>
+                                <span class="bento-pill">Django</span>
+                                <span class="bento-pill">DRF</span>
+                                <span class="bento-pill">RESTful API</span>
+                                <span class="bento-pill">JWT Auth</span>
+                                <span class="bento-pill">MVC</span>
+                            </div>
                         </div>
 
-                        <!-- Category 4 -->
-                        <div class="skill-card">
-                            <div class="skill-header">
-                                <h4 class="skill-category-title">Databases & Storage</h4>
-                                <span class="verified-tag">Verified Stack ● Active</span>
+                        <!-- Card: Databases -->
+                        <div class="bento-card bento-span-4" style="--bento-accent: linear-gradient(90deg, #f59e0b, #f43f5e);">
+                            <div class="bento-card-icon" style="background: rgba(245,158,11,0.1);">
+                                <span>🗄️</span>
                             </div>
-                            <ul class="skill-list-pills">
-                                <li class="skill-pill">PostgreSQL</li>
-                                <li class="skill-pill">MySQL</li>
-                                <li class="skill-pill">Relational Schemas</li>
-                                <li class="skill-pill">ORM Queries</li>
-                            </ul>
+                            <div class="bento-card-label">Databases & Storage</div>
+                            <div class="bento-card-title">Data Layer & Storage</div>
+                            <div class="bento-pill-grid" style="margin-top: 8px;">
+                                <span class="bento-pill">PostgreSQL</span>
+                                <span class="bento-pill">MySQL</span>
+                                <span class="bento-pill">Supabase</span>
+                                <span class="bento-pill">ORM Queries</span>
+                                <span class="bento-pill">SQL Schemas</span>
+                            </div>
                         </div>
 
-                        <!-- Category 5 -->
-                        <div class="skill-card">
-                            <div class="skill-header">
-                                <h4 class="skill-category-title">Developer Tools & DevOps</h4>
-                                <span class="verified-tag">Verified Stack ● Active</span>
+                        <!-- Card: DevOps stats -->
+                        <div class="bento-card bento-span-4" style="--bento-accent: linear-gradient(90deg, #a855f7, #f43f5e);">
+                            <div class="bento-card-icon" style="background: rgba(168,85,247,0.1);">
+                                <span>🚀</span>
                             </div>
-                            <ul class="skill-list-pills">
-                                <li class="skill-pill">Git</li>
-                                <li class="skill-pill">GitHub</li>
-                                <li class="skill-pill">GitHub Actions</li>
-                                <li class="skill-pill">Postman</li>
-                                <li class="skill-pill">VS Code</li>
-                                <li class="skill-pill">Docker</li>
-                                <li class="skill-pill">Linux</li>
-                                <li class="skill-pill">Vercel</li>
-                                <li class="skill-pill">Figma</li>
-                                <li class="skill-pill">Supabase</li>
-                            </ul>
+                            <div class="bento-card-label">DevOps & Tooling</div>
+                            <div class="bento-card-title">Dev Tools & Infrastructure</div>
+                            <div class="bento-pill-grid" style="margin-top: 8px;">
+                                <span class="bento-pill">Git / GitHub</span>
+                                <span class="bento-pill">Docker</span>
+                                <span class="bento-pill">Vercel</span>
+                                <span class="bento-pill">GitHub Actions</span>
+                                <span class="bento-pill">Postman</span>
+                                <span class="bento-pill">Linux</span>
+                                <span class="bento-pill">Figma</span>
+                            </div>
                         </div>
 
-                        <!-- Category 6 -->
-                        <div class="skill-card">
-                            <div class="skill-header">
-                                <h4 class="skill-category-title">Core Computer Science</h4>
-                                <span class="verified-tag">Verified Stack ● Active</span>
+                        <!-- Wide card: Stats row -->
+                        <div class="bento-card bento-span-8" style="--bento-accent: linear-gradient(90deg, #38bdf8, #34d399);">
+                            <div class="bento-card-label">Engineering At a Glance</div>
+                            <div class="bento-card-title" style="margin-bottom: 28px;">Production-Grade Metrics</div>
+                            <div class="bento-stats-row">
+                                <div>
+                                    <div class="bento-stat-num">9+</div>
+                                    <div class="bento-stat-label">Production Projects</div>
+                                </div>
+                                <div>
+                                    <div class="bento-stat-num">5+</div>
+                                    <div class="bento-stat-label">Tech Stacks</div>
+                                </div>
+                                <div>
+                                    <div class="bento-stat-num">15+</div>
+                                    <div class="bento-stat-label">REST APIs Built</div>
+                                </div>
+                                <div>
+                                    <div class="bento-stat-num">2+</div>
+                                    <div class="bento-stat-label">Years Building</div>
+                                </div>
                             </div>
-                            <ul class="skill-list-pills">
-                                <li class="skill-pill">Data Structures & Algorithms</li>
-                                <li class="skill-pill">System Design</li>
-                                <li class="skill-pill">OOP Principles</li>
-                                <li class="skill-pill">MVC Architecture</li>
-                                <li class="skill-pill">JWT Auth & Security</li>
-                            </ul>
                         </div>
 
-                    </div> <!-- end skills-grid -->
+                        <!-- Card: CS Fundamentals -->
+                        <div class="bento-card bento-span-4" style="--bento-accent: linear-gradient(90deg, #f43f5e, #f59e0b);">
+                            <div class="bento-card-icon" style="background: rgba(244,63,94,0.1);">
+                                <span>🧠</span>
+                            </div>
+                            <div class="bento-card-label">Computer Science</div>
+                            <div class="bento-card-title">Core CS Foundations</div>
+                            <div class="bento-pill-grid" style="margin-top: 8px;">
+                                <span class="bento-pill">DSA</span>
+                                <span class="bento-pill">System Design</span>
+                                <span class="bento-pill">OOP</span>
+                                <span class="bento-pill">DBMS</span>
+                                <span class="bento-pill">OS Concepts</span>
+                            </div>
+                        </div>
+
+                    </div> <!-- end skill-bento-grid -->
 
                 </div>
             </div>
         </section>
 
 
-        <!-- # 03. PROJECTS SECTION (Dark Obsidian Grid, Glowing Hover & Category Filters)
+        <!-- # 03. PROJECTS — PREMIUM CARD REDESIGN
         ================================================== -->
-        <section id="works" class="s-works target-section">
+        <section id="works" class="target-section uplift-section projects-section-wrap">
 
-            <div class="row">
+            <div class="row" style="position: relative; z-index: 2;">
                 <div class="column xl-12">
-                    
-                    <div class="project-section-header">
-                        <h2 class="project-section-title">Projects</h2>
-                        <p class="project-section-subtitle">
-                            Explore production web apps, AI data tools, Django backend systems, and interactive UI applications.
-                        </p>
 
-                        <!-- Filter Tabs -->
-                        <div class="project-filter-pills">
-                            <button class="project-filter-btn active" data-filter="all">All</button>
-                            <button class="project-filter-btn" data-filter="fullstack">Full-Stack</button>
-                            <button class="project-filter-btn" data-filter="aiml">AI & ML</button>
-                            <button class="project-filter-btn" data-filter="backend">Backend</button>
-                            <button class="project-filter-btn" data-filter="frontend">Frontend & Web</button>
-                        </div>
+                    <!-- Section label -->
+                    <div style="margin-bottom: 24px;">
+                        <span class="section-pill" style="background: rgba(244,63,94,0.08); border-color: rgba(244,63,94,0.25); color: #f43f5e;">
+                            <span class="section-pill-dot" style="background: #f43f5e; box-shadow: 0 0 6px #f43f5e;"></span>
+                            03 — Featured Projects
+                        </span>
                     </div>
 
-                    <!-- Projects Grid matching screenshot -->
-                    <div class="projects-grid">
+                    <h2 class="proj-heading">What I've <span>Built</span></h2>
+                    <p class="proj-sub">Production-grade full-stack apps, AI data tools, Django backend systems, and interactive UI projects — shipped and open source.</p>
 
-                        <!-- 1. Notion Clone -->
-                        <div class="project-card-hudson" data-category="fullstack">
+                    <!-- Filter row -->
+                    <div class="proj-filter-row">
+                        <button class="proj-filter active" data-filter="all" id="pf-all">All Projects</button>
+                        <button class="proj-filter" data-filter="fullstack" id="pf-fullstack">Full-Stack</button>
+                        <button class="proj-filter" data-filter="aiml" id="pf-aiml">AI & ML</button>
+                        <button class="proj-filter" data-filter="backend" id="pf-backend">Backend</button>
+                        <button class="proj-filter" data-filter="frontend" id="pf-frontend">Frontend</button>
+                    </div>
+
+                    <!-- NEW premium project grid -->
+                    <div class="proj-grid-new" id="proj-grid-new">
+
+                        <!-- 1. Notion Clone — featured wide -->
+                        <div class="proj-card-new proj-card-featured" data-cat="fullstack"
+                             style="--proj-accent: linear-gradient(90deg, #38bdf8, #a855f7);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">Featured Project</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Notion-clone-.git" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(56,189,248,0.12);">📝</div>
+                                    <span class="proj-cat-badge" style="color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08);">Featured · Full-Stack</span>
                                 </div>
-                                <h3 class="project-card-title">Notion Clone</h3>
-                                <p class="project-card-desc">Developed a full-featured Notion clone with real-time text editing, nesting documents, workspace organization, drag-and-drop file uploads, and full dark mode support.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">Next.js</span>
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">Tailwind CSS</span>
-                                    <span class="project-tech-pill">TypeScript</span>
-                                    <span class="project-tech-pill">BlockNote</span>
+                                <h3 class="proj-card-title-new">Notion Clone</h3>
+                                <p class="proj-card-desc-new">Full-featured Notion clone with real-time text editing, nested documents, workspace organization, drag-and-drop file uploads, and complete dark mode — built end-to-end.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">Next.js</span>
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">TypeScript</span>
+                                    <span class="proj-tech-chip">Tailwind CSS</span>
+                                    <span class="proj-tech-chip">BlockNote</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Notion-clone-.git" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Notion-clone-.git" target="_blank" rel="noopener noreferrer" class="proj-gh-link">
+                                    View Repository <span>↗</span>
+                                </a>
+                                <a href="https://github.com/venkateshyadagiri468/Notion-clone-.git" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                </a>
+                            </div>
                         </div>
 
                         <!-- 2. HabitFlow -->
-                        <div class="project-card-hudson" data-category="fullstack">
+                        <div class="proj-card-new" data-cat="fullstack"
+                             style="--proj-accent: linear-gradient(90deg, #34d399, #38bdf8);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">Featured Project</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Habitflow" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(52,211,153,0.12);">🔥</div>
+                                    <span class="proj-cat-badge" style="color: #34d399; border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.08);">Full-Stack</span>
                                 </div>
-                                <h3 class="project-card-title">HabitFlow</h3>
-                                <p class="project-card-desc">Built a full-stack, production-grade habit tracking platform featuring secure authentication, streak tracking, analytics, and progress visualization.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">Node.js</span>
-                                    <span class="project-tech-pill">Express.js</span>
-                                    <span class="project-tech-pill">PostgreSQL</span>
-                                    <span class="project-tech-pill">JavaScript</span>
+                                <h3 class="proj-card-title-new">HabitFlow</h3>
+                                <p class="proj-card-desc-new">Production-grade habit tracking platform with secure authentication, streak analytics, progress visualization, and PostgreSQL-backed data persistence.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">Node.js</span>
+                                    <span class="proj-tech-chip">Express.js</span>
+                                    <span class="proj-tech-chip">PostgreSQL</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Habitflow" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Habitflow" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/Habitflow" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 2. GrowEasy AI Importer -->
-                        <div class="project-card-hudson" data-category="aiml">
+                        <!-- 3. GrowEasy AI Importer -->
+                        <div class="proj-card-new" data-cat="aiml"
+                             style="--proj-accent: linear-gradient(90deg, #a855f7, #f43f5e);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">AI Automation</span>
-                                    <a href="https://github.com/venkateshyadagiri468/groweasy-ai-importer" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(168,85,247,0.12);">🤖</div>
+                                    <span class="proj-cat-badge" style="color: #a855f7; border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.08);">AI Automation</span>
                                 </div>
-                                <h3 class="project-card-title">GrowEasy AI Importer</h3>
-                                <p class="project-card-desc">Developed an AI-powered platform for importing and processing product information through an intuitive, guided user interface with automated data extraction.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">TypeScript</span>
-                                    <span class="project-tech-pill">Node.js</span>
-                                    <span class="project-tech-pill">AI Extraction</span>
+                                <h3 class="proj-card-title-new">GrowEasy AI Importer</h3>
+                                <p class="proj-card-desc-new">AI-powered platform for importing and processing product data through an intuitive UI with automated extraction and guided workflows.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">TypeScript</span>
+                                    <span class="proj-tech-chip">Node.js</span>
+                                    <span class="proj-tech-chip">AI Extraction</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/groweasy-ai-importer" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/groweasy-ai-importer" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/groweasy-ai-importer" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 3. Healthcare Backend System -->
-                        <div class="project-card-hudson" data-category="backend">
+                        <!-- 4. Healthcare Backend —  featured wide -->
+                        <div class="proj-card-new proj-card-featured" data-cat="backend"
+                             style="--proj-accent: linear-gradient(90deg, #f43f5e, #f59e0b);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">15+ REST APIs</span>
-                                    <a href="https://github.com/venkateshyadagiri468/healthcare-backend-django" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(244,63,94,0.12);">🏥</div>
+                                    <span class="proj-cat-badge" style="color: #f43f5e; border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.08);">Featured · 15+ REST APIs</span>
                                 </div>
-                                <h3 class="project-card-title">Healthcare Backend System</h3>
-                                <p class="project-card-desc">Production-ready backend built with Django REST Framework featuring secure JWT auth, role-based authorization, and 15+ REST endpoints for appointment & doctor management.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">Python</span>
-                                    <span class="project-tech-pill">Django</span>
-                                    <span class="project-tech-pill">DRF</span>
-                                    <span class="project-tech-pill">PostgreSQL</span>
-                                    <span class="project-tech-pill">JWT Auth</span>
+                                <h3 class="proj-card-title-new">Healthcare Backend System</h3>
+                                <p class="proj-card-desc-new">Production-ready Django REST Framework backend with JWT authentication, role-based access control, and 15+ REST endpoints managing appointments, doctors, and patient records at scale.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">Python</span>
+                                    <span class="proj-tech-chip">Django</span>
+                                    <span class="proj-tech-chip">DRF</span>
+                                    <span class="proj-tech-chip">PostgreSQL</span>
+                                    <span class="proj-tech-chip">JWT Auth</span>
+                                    <span class="proj-tech-chip">RBAC</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/healthcare-backend-django" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/healthcare-backend-django" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/healthcare-backend-django" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 4. Sentiment Analysis System -->
-                        <div class="project-card-hudson" data-category="aiml">
+                        <!-- 5. Sentiment Analysis -->
+                        <div class="proj-card-new" data-cat="aiml"
+                             style="--proj-accent: linear-gradient(90deg, #f59e0b, #a855f7);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">Machine Learning</span>
-                                    <a href="https://github.com/venkateshyadagiri468/SENTIMENT_ANALYSIS_PROJECT" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(245,158,11,0.12);">🧠</div>
+                                    <span class="proj-cat-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.08);">Machine Learning</span>
                                 </div>
-                                <h3 class="project-card-title">Sentiment Analysis System</h3>
-                                <p class="project-card-desc">NLP-based sentiment analysis system for movie review classification, with a full preprocessing pipeline covering tokenization, TF-IDF vectorization, and ML model evaluation.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">Python</span>
-                                    <span class="project-tech-pill">Scikit-learn</span>
-                                    <span class="project-tech-pill">NLP</span>
-                                    <span class="project-tech-pill">TF-IDF</span>
+                                <h3 class="proj-card-title-new">Sentiment Analysis</h3>
+                                <p class="proj-card-desc-new">NLP sentiment analysis for movie reviews with full preprocessing — tokenization, TF-IDF vectorization, and ML model evaluation pipeline.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">Python</span>
+                                    <span class="proj-tech-chip">Scikit-learn</span>
+                                    <span class="proj-tech-chip">NLP</span>
+                                    <span class="proj-tech-chip">TF-IDF</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/SENTIMENT_ANALYSIS_PROJECT" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/SENTIMENT_ANALYSIS_PROJECT" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/SENTIMENT_ANALYSIS_PROJECT" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 5. Expense Tracker Pro -->
-                        <div class="project-card-hudson" data-category="fullstack">
+                        <!-- 6. Expense Tracker -->
+                        <div class="proj-card-new" data-cat="fullstack"
+                             style="--proj-accent: linear-gradient(90deg, #38bdf8, #34d399);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">Finance App</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Expense-tracker-pro.git" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(56,189,248,0.12);">💰</div>
+                                    <span class="proj-cat-badge" style="color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08);">Finance App</span>
                                 </div>
-                                <h3 class="project-card-title">Expense Tracker Pro</h3>
-                                <p class="project-card-desc">Advanced financial management and budgeting dashboard featuring category analytics, expense breakdown charts, and real-time transaction tracking.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">Node.js</span>
-                                    <span class="project-tech-pill">Chart Analytics</span>
-                                    <span class="project-tech-pill">CSS3</span>
+                                <h3 class="proj-card-title-new">Expense Tracker Pro</h3>
+                                <p class="proj-card-desc-new">Financial management dashboard with category analytics, expense breakdown charts, and real-time transaction tracking.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">Node.js</span>
+                                    <span class="proj-tech-chip">Chart.js</span>
+                                    <span class="proj-tech-chip">CSS3</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Expense-tracker-pro.git" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Expense-tracker-pro.git" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/Expense-tracker-pro.git" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 6. DocFlow -->
-                        <div class="project-card-hudson" data-category="fullstack">
+                        <!-- 7. DocFlow -->
+                        <div class="proj-card-new" data-cat="fullstack"
+                             style="--proj-accent: linear-gradient(90deg, #a855f7, #38bdf8);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">Workflow Automation</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Docflow" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(168,85,247,0.12);">📄</div>
+                                    <span class="proj-cat-badge" style="color: #a855f7; border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.08);">Workflow</span>
                                 </div>
-                                <h3 class="project-card-title">DocFlow</h3>
-                                <p class="project-card-desc">Collaborative document management and workflow automation platform designed for efficient handling, status tracking, and file organizational pipelines.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">TypeScript</span>
-                                    <span class="project-tech-pill">Node.js</span>
-                                    <span class="project-tech-pill">REST API</span>
+                                <h3 class="proj-card-title-new">DocFlow</h3>
+                                <p class="proj-card-desc-new">Collaborative document management and workflow automation platform for file handling, status tracking, and organizational pipelines.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">TypeScript</span>
+                                    <span class="proj-tech-chip">Node.js</span>
+                                    <span class="proj-tech-chip">REST API</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Docflow" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Docflow" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/Docflow" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 7. AI Prompt Library -->
-                        <div class="project-card-hudson" data-category="aiml">
+                        <!-- 8. AI Prompt Library -->
+                        <div class="proj-card-new" data-cat="aiml"
+                             style="--proj-accent: linear-gradient(90deg, #f43f5e, #f59e0b);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">AI Utility</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Ai-prompt-library" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(244,63,94,0.12);">✨</div>
+                                    <span class="proj-cat-badge" style="color: #f43f5e; border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.08);">AI Utility</span>
                                 </div>
-                                <h3 class="project-card-title">AI Prompt Library</h3>
-                                <p class="project-card-desc">Prompt management repository enabling users to curate, test, tag, and quickly copy optimized prompts for ChatGPT, Midjourney, and LLM applications.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">Node.js</span>
-                                    <span class="project-tech-pill">AI Prompts</span>
-                                    <span class="project-tech-pill">UI Library</span>
+                                <h3 class="proj-card-title-new">AI Prompt Library</h3>
+                                <p class="proj-card-desc-new">Prompt management hub for curating, testing, tagging, and copying optimized prompts for ChatGPT, Midjourney, and LLM applications.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">Node.js</span>
+                                    <span class="proj-tech-chip">AI Prompts</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Ai-prompt-library" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Ai-prompt-library" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/Ai-prompt-library" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 8. Furniture HUB -->
-                        <div class="project-card-hudson" data-category="frontend">
+                        <!-- 9. Furniture HUB -->
+                        <div class="proj-card-new" data-cat="frontend"
+                             style="--proj-accent: linear-gradient(90deg, #34d399, #f59e0b);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">E-Commerce UI</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Furniture-HUB" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(52,211,153,0.12);">🛋️</div>
+                                    <span class="proj-cat-badge" style="color: #34d399; border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.08);">E-Commerce UI</span>
                                 </div>
-                                <h3 class="project-card-title">Furniture HUB</h3>
-                                <p class="project-card-desc">Sleek e-commerce store user interface featuring dynamic product catalog, interactive cart management, fluid filtering, and modern responsive layouts.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">Tailwind CSS</span>
-                                    <span class="project-tech-pill">E-Commerce UI</span>
+                                <h3 class="proj-card-title-new">Furniture HUB</h3>
+                                <p class="proj-card-desc-new">Sleek e-commerce store UI with dynamic product catalog, interactive cart management, fluid filtering, and modern responsive layouts.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">React.js</span>
+                                    <span class="proj-tech-chip">Tailwind CSS</span>
+                                    <span class="proj-tech-chip">E-Commerce</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Furniture-HUB" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Furniture-HUB" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/Furniture-HUB" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                        <!-- 9. Snake Game -->
-                        <div class="project-card-hudson" data-category="frontend">
+                        <!-- 10. Snake Game -->
+                        <div class="proj-card-new" data-cat="frontend"
+                             style="--proj-accent: linear-gradient(90deg, #38bdf8, #f59e0b);">
                             <div>
-                                <div class="project-card-top">
-                                    <span class="project-badge-pill">Canvas Game</span>
-                                    <a href="https://github.com/venkateshyadagiri468/Snake-Game" target="_blank" rel="noopener noreferrer" class="project-github-icon" title="GitHub Repository">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    </a>
+                                <div class="proj-card-top-row">
+                                    <div class="proj-card-icon-wrap" style="background: rgba(56,189,248,0.12);">🎮</div>
+                                    <span class="proj-cat-badge" style="color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08);">Canvas Game</span>
                                 </div>
-                                <h3 class="project-card-title">Snake Game</h3>
-                                <p class="project-card-desc">Classic arcade game developed with HTML5 Canvas and JavaScript, featuring smooth grid rendering, score tracking, responsive controls, and custom audio cues.</p>
-                                <div class="project-tech-pills">
-                                    <span class="project-tech-pill">JavaScript</span>
-                                    <span class="project-tech-pill">HTML5 Canvas</span>
-                                    <span class="project-tech-pill">CSS3</span>
-                                    <span class="project-tech-pill">Arcade Game</span>
+                                <h3 class="proj-card-title-new">Snake Game</h3>
+                                <p class="proj-card-desc-new">Classic arcade game built with HTML5 Canvas & JavaScript — smooth grid rendering, score tracking, responsive controls, and audio cues.</p>
+                                <div class="proj-tech-row">
+                                    <span class="proj-tech-chip">JavaScript</span>
+                                    <span class="proj-tech-chip">HTML5 Canvas</span>
+                                    <span class="proj-tech-chip">CSS3</span>
                                 </div>
                             </div>
-                            <a href="https://github.com/venkateshyadagiri468/Snake-Game" target="_blank" rel="noopener noreferrer" class="project-repo-link">
-                                View Repository ↗
-                            </a>
+                            <div class="proj-card-footer">
+                                <a href="https://github.com/venkateshyadagiri468/Snake-Game" target="_blank" rel="noopener noreferrer" class="proj-gh-link">View Repository <span>↗</span></a>
+                                <a href="https://github.com/venkateshyadagiri468/Snake-Game" target="_blank" rel="noopener noreferrer" class="proj-gh-btn" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+                            </div>
                         </div>
 
-                    </div> <!-- projects-grid -->
+                    </div> <!-- end proj-grid-new -->
 
                 </div>
             </div>
 
-        </section> <!-- end s-works --> 
+        </section> <!-- end s-works -->
 
 
-        <!-- # 04. EXPERIENCE & EDUCATION SECTION (Interactive Vertical Timeline & Location Update)
+        <!-- # 04. EXPERIENCE & EDUCATION — PREMIUM VERTICAL TIMELINE
         ================================================== -->
-        <section id="experience" class="s-about target-section" style="padding-top: 80px;">
+        <section id="experience" class="target-section uplift-section exp-section-wrap">
 
-            <div class="row s-about__content">
-                <div class="column xl-12">    
-                    
-                    <div class="section-header" data-num="04" style="text-align: center; margin-bottom: 28px;">
-                        <h2 class="exp-section-title">Experience & Education.</h2>
-                    </div> <!-- end section-header -->
+            <div class="row" style="position: relative; z-index: 2;">
+                <div class="column xl-12">
 
-                    <p style="color: #475569; font-size: 1.1rem; font-weight: 500; text-align: center; max-width: 640px; margin: 12px auto 40px auto; line-height: 1.6;">
-                        Proven engineering experience in Agile teams, Figma-to-code translation, and core computer science fundamentals.
-                    </p>
+                    <!-- Section label -->
+                    <div style="margin-bottom: 24px;">
+                        <span class="section-pill" style="background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.25); color: #34d399;">
+                            <span class="section-pill-dot" style="background: #34d399; box-shadow: 0 0 6px #34d399;"></span>
+                            04 — Experience & Education
+                        </span>
+                    </div>
 
-                    <!-- Interactive Vertical Timeline -->
-                    <div class="exp-timeline">
+                    <h2 class="exp-heading">Career <span>Journey</span></h2>
+                    <p class="exp-sub-text">Proven engineering experience in Agile teams, Figma-to-code translation, and core computer science fundamentals — built through real-world work.</p>
 
-                        <!-- Item 1: Pitchmatter Work Experience -->
-                        <div class="exp-timeline-item">
-                            <div class="exp-timeline-dot"></div>
-                            
-                            <div class="exp-card">
-                                <div class="exp-card-header">
+                    <!-- Premium Timeline -->
+                    <div class="exp-tl-wrap">
+
+                        <!-- ═══ Item 1: Pitchmatter Work Experience ═══ -->
+                        <div class="exp-tl-item"
+                             style="--exp-accent-color: rgba(56,189,248,0.3); --exp-accent-shadow: rgba(56,189,248,0.1); --exp-accent-bar: linear-gradient(90deg,#38bdf8,#a855f7);">
+                            <div class="exp-tl-node" style="border-color: #38bdf8; color: #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.4);">💼</div>
+                            <div class="exp-tl-card">
+
+                                <div class="exp-tl-card-head">
                                     <div>
-                                        <h3 class="exp-company-title">Pitchmatter</h3>
-                                        <span class="exp-role-badge">Software Engineer Intern – Frontend</span>
+                                        <h3 class="exp-tl-company">Pitchmatter</h3>
+                                        <span class="exp-tl-role" style="color: #f43f5e; border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.08);">
+                                            <span style="width:8px;height:8px;background:#f43f5e;border-radius:50%;display:inline-block;"></span>
+                                            Software Engineer Intern — Frontend
+                                        </span>
                                     </div>
                                     <div style="text-align: right;">
-                                        <span class="exp-date-pill">Apr. 2026 – Present</span>
-                                        <div class="exp-location">Dubai, UAE (Remote)</div>
+                                        <div class="exp-tl-date-pill">
+                                            <span class="exp-tl-date-dot"></span>
+                                            Apr. 2026 – Present
+                                        </div>
+                                        <div class="exp-tl-location">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#475569"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                            Dubai, UAE (Remote)
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div style="color: #94a3b8; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;">
-                                    Key Contributions & Engineering Highlights:
-                                </div>
+                                <div class="exp-tl-label">Key Contributions & Engineering Highlights</div>
 
-                                <ul class="exp-bullet-list">
-                                    <li class="exp-bullet-item">
-                                        Contributed to <strong style="color: #38bdf8; font-weight: 700;">Zynk.ing</strong>, a production web application, by building responsive, reusable frontend components using React.js and TypeScript.
+                                <ul class="exp-tl-bullets">
+                                    <li class="exp-tl-bullet">
+                                        <span class="exp-tl-bullet-icon" style="background: rgba(56,189,248,0.12); color: #38bdf8;">⚡</span>
+                                        <span>Contributed to <strong>Zynk.ing</strong>, a production web app, building responsive, reusable frontend components with <strong>React.js</strong> and <strong>TypeScript</strong>.</span>
                                     </li>
-                                    <li class="exp-bullet-item">
-                                        Converted Figma design mockups into pixel-perfect, production-ready web interfaces while ensuring high responsiveness, accessibility, and cross-browser compatibility.
+                                    <li class="exp-tl-bullet">
+                                        <span class="exp-tl-bullet-icon" style="background: rgba(56,189,248,0.12); color: #38bdf8;">🎨</span>
+                                        <span>Converted <strong>Figma</strong> mockups into pixel-perfect, production-ready interfaces ensuring responsiveness, accessibility, and cross-browser compatibility.</span>
                                     </li>
-                                    <li class="exp-bullet-item">
-                                        Integrated frontend modules with backend REST APIs, enabling seamless client-server data flow and real-time state updates.
+                                    <li class="exp-tl-bullet">
+                                        <span class="exp-tl-bullet-icon" style="background: rgba(56,189,248,0.12); color: #38bdf8;">🔌</span>
+                                        <span>Integrated frontend modules with backend <strong>REST APIs</strong>, enabling seamless client-server data flow and real-time state updates.</span>
                                     </li>
-                                    <li class="exp-bullet-item">
-                                        Collaborated closely with product managers, UI/UX designers, and backend engineers in sprint planning, daily stand-ups, and code reviews in Agile workflow.
+                                    <li class="exp-tl-bullet">
+                                        <span class="exp-tl-bullet-icon" style="background: rgba(56,189,248,0.12); color: #38bdf8;">🤝</span>
+                                        <span>Collaborated with product managers, UI/UX designers & backend engineers in <strong>Agile sprints</strong>, daily stand-ups, and code reviews.</span>
                                     </li>
                                 </ul>
 
-                                <div class="exp-tech-pills">
-                                    <span class="project-tech-pill">React.js</span>
-                                    <span class="project-tech-pill">TypeScript</span>
-                                    <span class="project-tech-pill">REST APIs</span>
-                                    <span class="project-tech-pill">Figma UI</span>
-                                    <span class="project-tech-pill">Agile Workflow</span>
+                                <div class="exp-tl-chip-row">
+                                    <span class="exp-tl-chip">React.js</span>
+                                    <span class="exp-tl-chip">TypeScript</span>
+                                    <span class="exp-tl-chip">REST APIs</span>
+                                    <span class="exp-tl-chip">Figma → Code</span>
+                                    <span class="exp-tl-chip">Agile / Scrum</span>
+                                    <span class="exp-tl-chip">Cross-Browser</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Item 2: Trinity Education -->
-                        <div class="exp-timeline-item">
-                            <div class="exp-timeline-dot" style="border-color: #34d399; box-shadow: 0 0 12px #34d399;"></div>
-                            
-                            <div class="exp-card">
-                                <div class="exp-card-header">
+                        <!-- ═══ Item 2: Trinity Education ═══ -->
+                        <div class="exp-tl-item"
+                             style="--exp-accent-color: rgba(52,211,153,0.3); --exp-accent-shadow: rgba(52,211,153,0.1); --exp-accent-bar: linear-gradient(90deg,#34d399,#38bdf8);">
+                            <div class="exp-tl-node" style="border-color: #34d399; color: #34d399; box-shadow: 0 0 20px rgba(52,211,153,0.4);">🎓</div>
+                            <div class="exp-tl-card exp-tl-edu-card">
+
+                                <div class="exp-tl-card-head">
                                     <div>
-                                        <h3 class="exp-company-title">Trinity College of Engineering & Technology</h3>
-                                        <span class="edu-degree-badge">Bachelor of Technology in CSE</span>
+                                        <h3 class="exp-tl-company">Trinity College of Engineering & Technology</h3>
+                                        <span class="exp-tl-role" style="color: #34d399; border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.08);">
+                                            <span style="width:8px;height:8px;background:#34d399;border-radius:50%;display:inline-block;"></span>
+                                            B.Tech in Computer Science & Engineering
+                                        </span>
                                     </div>
                                     <div style="text-align: right;">
-                                        <span class="exp-date-pill" style="color: #34d399; border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.12);">Aug. 2022 – May 2025</span>
-                                        <div class="exp-location">Hyderabad, India</div>
+                                        <div class="exp-tl-date-pill" style="background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.25); color: #34d399;">
+                                            <span class="exp-tl-date-dot" style="background: #34d399; box-shadow: 0 0 6px #34d399;"></span>
+                                            Aug. 2022 – May 2025
+                                        </div>
+                                        <div class="exp-tl-location">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#475569"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                            Hyderabad, India
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div style="color: #94a3b8; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;">
-                                    Core Computer Science Coursework & Foundations:
-                                </div>
+                                <div class="exp-tl-label">Core Computer Science Coursework & Foundations</div>
 
-                                <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.7; margin: 0 0 16px 0;">
-                                    Completed intensive degree program focused on software engineering principles, algorithm design, relational database systems, and object-oriented architecture.
+                                <p style="color: #94a3b8; font-size: 0.97rem; line-height: 1.7; margin-bottom: 20px;">
+                                    Intensive degree focused on software engineering principles, algorithm design, relational database systems, and object-oriented architecture — building the CS fundamentals that underpin every project.
                                 </p>
 
-                                <div class="exp-tech-pills">
-                                    <span class="project-tech-pill">Data Structures & Algorithms</span>
-                                    <span class="project-tech-pill">System Design</span>
-                                    <span class="project-tech-pill">OOP Principles</span>
-                                    <span class="project-tech-pill">DBMS & SQL</span>
-                                    <span class="project-tech-pill">Operating Systems</span>
-                                    <span class="project-tech-pill">Web Technologies</span>
+                                <div class="exp-tl-edu-course-grid">
+                                    <div class="exp-tl-edu-course">Data Structures & Algorithms</div>
+                                    <div class="exp-tl-edu-course">System Design</div>
+                                    <div class="exp-tl-edu-course">OOP Principles</div>
+                                    <div class="exp-tl-edu-course">DBMS & SQL</div>
+                                    <div class="exp-tl-edu-course">Operating Systems</div>
+                                    <div class="exp-tl-edu-course">Web Technologies</div>
+                                    <div class="exp-tl-edu-course">Computer Networks</div>
+                                    <div class="exp-tl-edu-course">Software Engineering</div>
                                 </div>
                             </div>
                         </div>
 
-                    </div> <!-- end exp-timeline -->
+                    </div> <!-- end exp-tl-wrap -->
 
-                </div> <!--end column -->
-            </div> <!--end s-about__content -->
-            
-        </section> <!-- end s-about -->   
+                </div>
+            </div>
+
+        </section> <!-- end experience -->
 
 
         <!-- # 05. CONTACT SECTION (Interactive Message Form Handler & Alert Banner)
@@ -2114,31 +3265,177 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     
-    <!-- Filter Interactivity Script -->
+    <!-- Premium Interactivity: Filter + Skill Bars + Animations -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.project-filter-btn');
-            const cards = document.querySelectorAll('.project-card-hudson');
 
-            filterBtns.forEach(btn => {
+            // ─── NEW Project Filter (.proj-filter buttons → data-cat) ───
+            const newFilters = document.querySelectorAll('.proj-filter');
+            const newCards   = document.querySelectorAll('.proj-card-new');
+
+            newFilters.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
+                    newFilters.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-
-                    const filterValue = btn.getAttribute('data-filter');
-
-                    cards.forEach(card => {
-                        const category = card.getAttribute('data-category') || '';
-                        if (filterValue === 'all' || category.includes(filterValue)) {
+                    const val = btn.getAttribute('data-filter');
+                    newCards.forEach(card => {
+                        const cat = card.getAttribute('data-cat') || '';
+                        const show = val === 'all' || cat === val;
+                        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        if (show) {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
                             card.style.display = 'flex';
                         } else {
-                            card.style.display = 'none';
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            setTimeout(() => { if (card.style.opacity === '0') card.style.display = 'none'; }, 300);
                         }
                     });
                 });
             });
 
-            // Contact Form Interactive Submission Handler
+            // ─── Skill Bar Scroll Animation ───
+            const bars = document.querySelectorAll('.skill-bar-fill');
+            if (bars.length) {
+                const barObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animated');
+                            barObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                bars.forEach(bar => barObserver.observe(bar));
+            }
+
+            // ─── Bento Card reveal on scroll ───
+            const bentoCards = document.querySelectorAll('.bento-card');
+            if (bentoCards.length && window.IntersectionObserver) {
+                bentoCards.forEach(c => { c.style.opacity = '0'; c.style.transform = 'translateY(24px)'; c.style.transition = 'opacity 0.5s ease, transform 0.5s ease'; });
+                const bentoObs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            bentoObs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                bentoCards.forEach(c => bentoObs.observe(c));
+            }
+
+            // ─── Project card fade-in ───
+            if (window.IntersectionObserver) {
+                newCards.forEach(c => { c.style.opacity = '0'; c.style.transform = 'translateY(30px)'; c.style.transition = 'opacity 0.55s ease, transform 0.55s ease'; });
+                const cardObs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            cardObs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                newCards.forEach(c => cardObs.observe(c));
+            }
+
+            // ─── Timeline item fade-in ───
+            const tlItems = document.querySelectorAll('.exp-tl-item');
+            if (tlItems.length && window.IntersectionObserver) {
+                tlItems.forEach(c => { c.style.opacity = '0'; c.style.transform = 'translateX(-20px)'; c.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; });
+                const tlObs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                            tlObs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                tlItems.forEach(c => tlObs.observe(c));
+            }
+
+            // ─── Custom Interactive Cursor Dot & Ring ───
+            if (!('ontouchstart' in window)) {
+                const dot = document.createElement('div');
+                dot.id = 'cursor-dot';
+                const ring = document.createElement('div');
+                ring.id = 'cursor-ring';
+                document.body.appendChild(dot);
+                document.body.appendChild(ring);
+
+                let mouseX = 0, mouseY = 0;
+                let ringX = 0, ringY = 0;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    dot.style.left = `${mouseX}px`;
+                    dot.style.top = `${mouseY}px`;
+                });
+
+                function renderCursor() {
+                    ringX += (mouseX - ringX) * 0.18;
+                    ringY += (mouseY - ringY) * 0.18;
+                    ring.style.left = `${ringX}px`;
+                    ring.style.top = `${ringY}px`;
+                    requestAnimationFrame(renderCursor);
+                }
+                requestAnimationFrame(renderCursor);
+            }
+
+            // ─── Bento Cards: Mouse Spotlight & Interactive 3D Tilt ───
+            bentoCards.forEach(card => {
+                // Add spotlight div if not present
+                if (!card.querySelector('.bento-spotlight')) {
+                    const spotlight = document.createElement('div');
+                    spotlight.className = 'bento-spotlight';
+                    card.appendChild(spotlight);
+                }
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
+                    card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
+
+                    // Dynamic 3D tilt calculation
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -6;
+                    const rotateY = ((x - centerX) / centerX) * 6;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.012)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+
+            // ─── Tech Tags: Dynamic Color Glow on Hover ───
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                const dot = tag.querySelector('.tech-tag-dot');
+                if (dot) {
+                    const color = dot.style.backgroundColor || '#38bdf8';
+                    tag.style.setProperty('--tag-glow', `${color}1a`);
+                    tag.style.setProperty('--tag-shadow', `${color}40`);
+                }
+            });
+
+            // ─── Filter Buttons: Mouse Ripple Origin ───
+            newFilters.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    btn.style.setProperty('--rx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+                    btn.style.setProperty('--ry', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+                });
+            });
+
+            // ─── Contact Form Handler ───
             const contactForm = document.getElementById('portfolio-contact-form');
             const alertBox = document.getElementById('contact-form-alert');
             const submitBtn = document.getElementById('contact-submit-btn');
@@ -2146,9 +3443,8 @@
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    
-                    const name = document.getElementById('contact-name').value.trim();
-                    const email = document.getElementById('contact-email').value.trim();
+                    const name    = document.getElementById('contact-name').value.trim();
+                    const email   = document.getElementById('contact-email').value.trim();
                     const message = document.getElementById('contact-message').value.trim();
 
                     if (!name || !email || !message) {
@@ -2163,19 +3459,17 @@
                     submitBtn.disabled = true;
                     submitBtn.innerText = 'Preparing Message...';
 
-                    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-                    const body = encodeURIComponent(`Hello Venkatesh,\n\n${message}\n\nBest regards,\n${name}\nEmail: ${email}`);
-                    const mailtoUrl = `mailto:venkateshyadagiri468@gmail.com?subject=${subject}&body=${body}`;
+                    const subject    = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+                    const body       = encodeURIComponent(`Hello Venkatesh,\n\n${message}\n\nBest regards,\n${name}\nEmail: ${email}`);
+                    const mailtoUrl  = `mailto:venkateshyadagiri468@gmail.com?subject=${subject}&body=${body}`;
 
                     setTimeout(() => {
                         window.location.href = mailtoUrl;
-
                         alertBox.style.display = 'block';
                         alertBox.style.background = 'rgba(52, 211, 153, 0.15)';
                         alertBox.style.border = '1px solid #34d399';
                         alertBox.style.color = '#34d399';
-                        alertBox.innerHTML = `✓ <strong>Thank you ${name}!</strong> Opening your email client.<br><span style="font-size:0.85rem; color:#cbd5e1; font-weight:400;">If your mail app didn't launch, <a href="${mailtoUrl}" style="color:#38bdf8; text-decoration:underline;">click here to email venkateshyadagiri468@gmail.com directly</a>.</span>`;
-
+                        alertBox.innerHTML = `✓ <strong>Thank you ${name}!</strong> Opening your email client.<br><span style="font-size:0.85rem; color:#cbd5e1; font-weight:400;">If your mail app didn't launch, <a href="${mailtoUrl}" style="color:#38bdf8; text-decoration:underline;">click here to email directly</a>.</span>`;
                         submitBtn.disabled = false;
                         submitBtn.innerText = 'Send Message';
                         contactForm.reset();
