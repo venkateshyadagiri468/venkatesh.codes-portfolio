@@ -116,7 +116,7 @@
                 requestAnimationFrame(renderCursor);
             }
 
-            // ─── Bento Cards: Mouse Spotlight & Interactive 3D Tilt ───
+            // ─── Bento Cards: Mouse & Touch Spotlight & 3D Tilt ───
             bentoCards.forEach(card => {
                 // Add spotlight div if not present
                 if (!card.querySelector('.bento-spotlight')) {
@@ -125,28 +125,54 @@
                     card.appendChild(spotlight);
                 }
 
-                card.addEventListener('mousemove', (e) => {
+                const handlePointerMove = (clientX, clientY) => {
                     const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
                     card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
                     card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
 
-                    // Dynamic 3D tilt calculation
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     const rotateX = ((y - centerY) / centerY) * -6;
                     const rotateY = ((x - centerX) / centerX) * 6;
 
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.012)`;
-                });
+                    const spotlightEl = card.querySelector('.bento-spotlight');
+                    if (spotlightEl) spotlightEl.style.opacity = '1';
+                };
 
-                card.addEventListener('mouseleave', () => {
+                const resetPointer = () => {
                     card.style.transform = '';
+                    const spotlightEl = card.querySelector('.bento-spotlight');
+                    if (spotlightEl) spotlightEl.style.opacity = '';
+                };
+
+                card.addEventListener('mousemove', (e) => handlePointerMove(e.clientX, e.clientY));
+                card.addEventListener('mouseleave', resetPointer);
+
+                // Mobile Touch Support
+                card.addEventListener('touchstart', (e) => {
+                    if (e.touches.length > 0) handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+                }, { passive: true });
+                card.addEventListener('touchmove', (e) => {
+                    if (e.touches.length > 0) handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+                }, { passive: true });
+                card.addEventListener('touchend', resetPointer);
+                card.addEventListener('touchcancel', resetPointer);
+            });
+
+            // ─── Project Cards: Touch Highlight Support ───
+            newCards.forEach(card => {
+                card.addEventListener('touchstart', () => {
+                    card.classList.add('touch-active');
+                }, { passive: true });
+                card.addEventListener('touchend', () => {
+                    setTimeout(() => card.classList.remove('touch-active'), 400);
                 });
             });
 
-            // ─── Tech Tags: Dynamic Color Glow on Hover ───
+            // ─── Tech Tags: Dynamic Color Glow on Hover & Touch ───
             const techTags = document.querySelectorAll('.tech-tag');
             techTags.forEach(tag => {
                 const dot = tag.querySelector('.tech-tag-dot');
@@ -155,15 +181,25 @@
                     tag.style.setProperty('--tag-glow', `${color}1a`);
                     tag.style.setProperty('--tag-shadow', `${color}40`);
                 }
+                tag.addEventListener('touchstart', () => {
+                    tag.style.transform = 'translateX(5px) scale(1.02)';
+                }, { passive: true });
+                tag.addEventListener('touchend', () => {
+                    setTimeout(() => tag.style.transform = '', 300);
+                });
             });
 
-            // ─── Filter Buttons: Mouse Ripple Origin ───
+            // ─── Filter Buttons: Mouse & Touch Ripple Origin ───
             newFilters.forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
+                const handleFilterPointer = (clientX, clientY) => {
                     const rect = btn.getBoundingClientRect();
-                    btn.style.setProperty('--rx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
-                    btn.style.setProperty('--ry', `${((e.clientY - rect.top) / rect.height) * 100}%`);
-                });
+                    btn.style.setProperty('--rx', `${((clientX - rect.left) / rect.width) * 100}%`);
+                    btn.style.setProperty('--ry', `${((clientY - rect.top) / rect.height) * 100}%`);
+                };
+                btn.addEventListener('mousemove', (e) => handleFilterPointer(e.clientX, e.clientY));
+                btn.addEventListener('touchstart', (e) => {
+                    if (e.touches.length > 0) handleFilterPointer(e.touches[0].clientX, e.touches[0].clientY);
+                }, { passive: true });
             });
 
             // ─── Contact Form Handler ───
